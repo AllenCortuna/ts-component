@@ -2,32 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  box-sizing: border-box;
+  /* border: red solid 1px; */
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.custom-shadow {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.custom-shadow2 {
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
 }
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .custom-input {
+    @apply input input-sm text-xs text-zinc-700 input-bordered bg-zinc-50 focus:outline-primary focus:border-zinc-100;
+  }
+  .custom-textarea {
+    @apply textarea textarea-bordered w-auto resize-none text-xs bg-zinc-50 focus:outline-primary focus:border-primary;
+  }
+  .navlink {
+    @apply md:w-full items-center justify-start flex gap-3 text-sm font-[600] p-3 hover:bg-secondary rounded-md hover:text-white transition-all duration-300 hover:shadow-md hover:drop-shadow-sm;
+  }
+  .navlink-user {
+    @apply flex gap-2 text-xs font-[600] p-2 hover:bg-secondary rounded-md hover:text-white transition-all duration-300;
   }
 }
