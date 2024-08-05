@@ -20,10 +20,10 @@ const config: Config = {
     themes: [
       {
         mytheme: {
-          primary: "#135D66",
-          secondary: "#77B0AA",
-          accent: "#E3FEF7",
-          neutral: "#003C43",
+          primary: "#40534C",
+          secondary: "#677D6A",
+          accent: "#D6BD98",
+          neutral: "#1A3636",
           white: "#ffffff",
         },
       },
