@@ -8,40 +8,14 @@ import { MdTry, MdPayments } from "react-icons/md";
 import { RiFolderHistoryFill } from "react-icons/ri";
 import { FaUserAlt, FaBuilding } from "react-icons/fa";
 import Image from "next/image";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoLogoSlack } from "react-icons/io";
 // import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 import Account from "./Account";
+import navItems from "./navItems";
+import { NavLink } from "./NavLink";
 interface NavbarProps {
   children: ReactNode;
 }
-
-interface NavLinkProps {
-  href: string;
-  icon: React.ComponentType<{ className?: string }>;
-  label: string;
-  isMinimized: boolean;
-  isActive: boolean;
-}
-
-export const NavLink: React.FC<NavLinkProps> = ({
-  href,
-  icon: Icon,
-  label,
-  isMinimized,
-  isActive,
-}) => (
-  <Link
-    href={href}
-    className={`w-full items-center justify-start flex gap-3 text-sm font-[600] p-3 hover:bg-secondary rounded-md hover:text-white transition-all duration-300 hover:dark:text-zinc-800 hover:shadow-md hover:drop-shadow-sm ${
-      isActive ? "bg-neutral text-white" : "text-zinc-700 dark:text-zinc-400"
-    }`}
-  >
-    <span className={`w-auto ${isMinimized && " mx-auto"}`}>
-      <Icon className="text-xl" />
-    </span>
-    {!isMinimized && label}
-  </Link>
-);
 
 const SideNavbar: React.FC<NavbarProps> = ({ children }) => {
   const [isMinimized, setIsMinimized] = useState(() => {
@@ -65,29 +39,22 @@ const SideNavbar: React.FC<NavbarProps> = ({ children }) => {
     setIsMinimized((prev: boolean) => !prev);
   };
 
-  const navItems = [
-    { href: "/admin/dashboard", icon: BsBarChartFill, label: "Dashboard" },
-    { href: "/admin/employee", icon: FaUserAlt, label: "Employee" },
-    { href: "/admin/attendance", icon: MdTry, label: "Attendance" },
-    { href: "/admin/payroll", icon: MdPayments, label: "Payroll" },
-    { href: "/admin/branch", icon: FaBuilding, label: "Branch" },
-    { href: "/admin/history", icon: RiFolderHistoryFill, label: "History" },
-  ];
+
   return (
     <div className="h-screen w-full flex flex-col">
       <span className="w-full h-14 bg-gradient-to-r from-gray-100 to-gray-300 dark:from-gray-800 dark:to-gray-900 custom-shadow justify-between px-5 items-center border-b border-zinc-300 dark:border-zinc-700 hidden md:flex">
         <span className="flex items-center text-white font-semibold rounded-md gap-2">
-          <Image
+          {/* <Image
             width={50}
             height={50}
             src={"/img/smarthr-logo.png"}
             alt="logo"
             className="w-14 drop-shadow-lg"
-          />
-          {!isMinimized && <p className="logo-banner">SMART HR</p>}
+          /> */}
+          <IoLogoSlack className="text-3xl" />
+          {/* {!isMinimized && <p className="text-white font-semibold">Brand Name</p>} */}
         </span>
         <div className="flex items-center gap-4">
-
           <details className="dropdown dropdown-end" >
             <summary
               tabIndex={0}

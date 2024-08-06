@@ -1,11 +1,12 @@
 // import Image from "next/image";
-
-import Layout from "@/components/Layout";
+import NavLayout from "@/components/Layout";
 
 export default function Home() {
   return (
     <main>
-      <Layout />
+      <NavLayout>
+        <div className="flex"></div>
+      </NavLayout>
     </main>
   );
 }

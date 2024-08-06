@@ -1,43 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { ReactNode, useState } from "react";
-import { BsBarChartFill } from "react-icons/bs";
-import { FaBuilding, FaUserAlt } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
-import { MdPayments, MdTry } from "react-icons/md";
-import { RiFolderHistoryFill } from "react-icons/ri";
 import Account from "./Account";
 import { CiMenuKebab } from "react-icons/ci";
+import { GoX } from "react-icons/go";
+import navItems from "./navItems";
+import { NavLink } from "./NavLink";
 
 interface NavbarProps {
   children: ReactNode;
 }
 
-interface NavLinkProps {
-  href: string;
-  icon: React.ComponentType<{ className?: string }>;
-  label: string;
-  isActive: boolean;
-}
-
-const NavLink: React.FC<NavLinkProps> = ({
-  href,
-  icon: Icon,
-  label,
-  isActive,
-}) => (
-  <Link
-    href={href}
-    className={`navlink ${
-      isActive ? "bg-neutral text-white" : "text-zinc-700 dark:text-zinc-300"
-    }`}
-  >
-    <Icon className="text-xl" /> {label}
-  </Link>
-);
 
 const TopNavbar: React.FC<NavbarProps> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,14 +23,6 @@ const TopNavbar: React.FC<NavbarProps> = ({ children }) => {
     setIsMenuOpen(!isMenuOpen);
   };
   
-  const navItems = [
-    { href: "/admin/dashboard", icon: BsBarChartFill, label: "Dashboard" },
-    { href: "/admin/employee", icon: FaUserAlt, label: "Employee" },
-    { href: "/admin/attendance", icon: MdTry, label: "Attendance" },
-    { href: "/admin/payroll", icon: MdPayments, label: "Payroll" },
-    { href: "/admin/branch", icon: FaBuilding, label: "Branch" },
-    { href: "/admin/history", icon: RiFolderHistoryFill, label: "History" },
-  ];
 
   return (
     <div className="h-screen w-screen flex flex-col dark:bg-gray-900">
@@ -82,7 +49,7 @@ const TopNavbar: React.FC<NavbarProps> = ({ children }) => {
           onClick={toggleMenu}
           className="text-2xl text-zinc-700 dark:text-zinc-300 p-2"
         >
-          {isMenuOpen ? <IoClose /> : <CiMenuKebab />}
+          {isMenuOpen ? <GoX /> : <CiMenuKebab />}
         </button>
       </span>
       {/* sidebar */}
@@ -102,6 +69,7 @@ const TopNavbar: React.FC<NavbarProps> = ({ children }) => {
                 icon={item.icon}
                 label={item.label}
                 isActive={pathname === item.href}
+                isMinimized={false}
               />
             ))}
           </motion.nav>

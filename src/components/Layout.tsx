@@ -8,7 +8,7 @@ interface NavbarProps {
   children: ReactNode;
 }
 
-const AdminLayout: React.FC<NavbarProps> = ({ children }) => {
+const NavLayout: React.FC<NavbarProps> = ({ children }) => {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
 
   React.useEffect(() => {
@@ -33,4 +33,4 @@ const AdminLayout: React.FC<NavbarProps> = ({ children }) => {
   );
 };
 
-export default AdminLayout;
+export default NavLayout;
