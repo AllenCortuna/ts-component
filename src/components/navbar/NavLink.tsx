@@ -16,8 +16,8 @@ export const NavLink: React.FC<NavLinkProps> = ({
 }) => (
   <Link
     href={href}
-    className={`w-full items-center justify-start flex gap-3 text-sm font-[600] p-3 hover:bg-secondary rounded-md hover:text-white transition-all duration-300 hover:dark:text-white hover:shadow-md hover:drop-shadow-sm ${
-      isActive ? "bg-neutral text-white" : "text-zinc-700 dark:text-zinc-400"
+    className={`w-full items-center justify-start flex gap-3 text-sm font-[600] p-3 hover:bg-secondary rounded-md hover:text-white transition-all duration-300 hover:dark:text-white hover:shadow-inner ${
+      isActive ? "bg-neutral text-white" : "text-neutral dark:text-zinc-300"
     }`}
   >
     <span className={`w-auto ${isMinimized && " mx-auto"}`}>

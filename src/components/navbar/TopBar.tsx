@@ -27,7 +27,7 @@ const TopNavbar: React.FC<NavbarProps> = ({ children }) => {
   return (
     <div className="h-screen w-screen flex flex-col dark:bg-gray-900">
       {/* topbar */}
-      <span className="w-full h-14 z-50 bg-zinc-200 dark:bg-gray-800 justify-between px-3 items-center border-b-2 border-zinc-300 dark:border-zinc-700 flex fixed top-0">
+      <span className="w-full h-14 z-50  bg-gray-200 dark:bg-gray-800 justify-between px-3 items-center border-b border-zinc-300 dark:border-zinc-700 flex fixed top-0">
         <details className="dropdown dropdown-start">
           <summary
             tabIndex={0}
@@ -60,7 +60,7 @@ const TopNavbar: React.FC<NavbarProps> = ({ children }) => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "-100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed h-screen top-14 bottom-0 bg-zinc-200 dark:bg-gray-800 flex flex-col p-5 gap-2 z-50 items-start justify-start w-3/5"
+            className="fixed h-screen top-14 bottom-0 flex flex-col p-5 gap-2 z-50 items-start justify-start w-3/5 border-r border-zinc-300 dark:border-zinc-700  bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-800"
           >
             {navItems.map((item) => (
               <NavLink
