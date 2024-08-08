@@ -1,4 +1,4 @@
-import NavLayout from "@/components/Layout";
+import NavLayout from "@/components/NavLayout";
 import PaginationTable from "@/components/pagination/PaginationTable";
 import React from "react";
 
