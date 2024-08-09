@@ -3,33 +3,21 @@
 import React, { ReactNode } from "react";
 import TopNavbar from "./navbar/TopBar";
 import SideNavbar from "./navbar/SideNavbar";
+import Header from "./navbar/Header";
 
 interface NavbarProps {
   children: ReactNode;
 }
 
 const NavLayout: React.FC<NavbarProps> = ({ children }) => {
-  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
-    <>
-      {isMobile ? (
-        <TopNavbar>{children}</TopNavbar>
-      ) : (
-        <SideNavbar>{children}</SideNavbar>
-      )}
-    </>
+    <div className="flex gap-0">
+      <SideNavbar />
+      <div className="flex flex-col w-full">
+        <Header />
+        <main>{children}</main>
+      </div>
+    </div>
   );
 };
 
