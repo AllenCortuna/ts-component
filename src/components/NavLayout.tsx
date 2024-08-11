@@ -1,9 +1,9 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import TopNavbar from "./navbar/TopBar";
 import SideNavbar from "./navbar/SideNavbar";
 import Header from "./navbar/Header";
+import MobileHeader from "./navbar/MobileHeader";
 
 interface NavbarProps {
   children: ReactNode;
@@ -15,7 +15,8 @@ const NavLayout: React.FC<NavbarProps> = ({ children }) => {
       <SideNavbar />
       <div className="flex flex-col w-full">
         <Header />
-        <main>{children}</main>
+        <MobileHeader/>
+        <main className="md:pt-10 pt-20 p-5">{children}</main>
       </div>
     </div>
   );

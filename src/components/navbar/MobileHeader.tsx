@@ -9,12 +9,9 @@ import { GoX } from "react-icons/go";
 import navItems from "./navItems";
 import { NavLink } from "./NavLink";
 
-interface NavbarProps {
-  children: ReactNode;
-}
 
 
-const TopNavbar: React.FC<NavbarProps> = ({ children }) => {
+const MobileHeader: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const [userData, setUserData] = useState<any>(null);
@@ -25,7 +22,7 @@ const TopNavbar: React.FC<NavbarProps> = ({ children }) => {
   
 
   return (
-    <div className="h-screen w-screen flex flex-col dark:bg-gray-900">
+    <div className="h-auto w-screen md:hidden flex flex-col dark:bg-gray-900">
       {/* topbar */}
       <span className="w-full h-14 z-50  bg-gray-200 dark:bg-gray-800 justify-between px-3 items-center border-b border-zinc-300 dark:border-zinc-700 flex fixed top-0">
         <details className="dropdown dropdown-start">
@@ -75,11 +72,9 @@ const TopNavbar: React.FC<NavbarProps> = ({ children }) => {
           </motion.nav>
         )}
       </AnimatePresence>
-      <div className="overflow-y-auto w-full mt-14 dark:bg-gray-900">
-        {children}
-      </div>
+
     </div>
   );
 };
 
-export default TopNavbar;
+export default MobileHeader;
